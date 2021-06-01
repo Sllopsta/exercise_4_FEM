@@ -18,8 +18,8 @@ n = 0
 def input_geometry():	# First step of the program where the geopetry is specified
 	global x1, x2, x3, x4, y1, y2, y3, y4
 	print ("""Please enter the corresponding coordinate values for the geometry under study""")
-	ex = [float(raw_input("x1\n> ")), float(raw_input("x2\n> ")), float(raw_input("x3\n> ")), float(raw_input("x4\n> "))]
-	wy = [float(raw_input("y1\n> ")), float(raw_input("y2\n> ")), float(raw_input("y3\n> ")), float(raw_input("y4\n> "))]
+	ex = [float(input("x1\n> ")), float(input("x2\n> ")), float(input("x3\n> ")), float(input("x4\n> "))]
+	wy = [float(input("y1\n> ")), float(input("y2\n> ")), float(input("y3\n> ")), float(input("y4\n> "))]
 	ex.sort()
 	wy.sort()
 	x1 = ex[-1]; x2 = ex[0]; x3 = x2; x4 = x1
@@ -32,7 +32,7 @@ def mesh_generation():	# Second step of the program where the mesh is generated
 	1. Enter 'coarse' for a rough mesh.
 	2. Enter 'normal' for a normal mesh.
 	3. Enter 'fine' for a smooth mesh.""")
-	mesh_type = raw_input("> ")
+	mesh_type = input("> ")
 	if mesh_type == 'coarse':	# Coarse mesh splits the geometry into 5 equal horizontal and vertical parts
 		x = num.linspace(x2, x1, 5)
 		y = num.linspace(y4, y1, 5)
@@ -87,7 +87,7 @@ def mesh_generation():	# Second step of the program where the mesh is generated
 		print(no_of_elements)
 	else:
 		mesh_generation()
-	raw_input()
+	input()
 	four_node_iso()	# Calls for the next step of the process
 
 def boundary_conditions():	# Sixth step of the process that gathers temperature boundary conditions from the user. Not yet implemented.
@@ -99,7 +99,7 @@ def boundary_conditions():	# Sixth step of the process that gathers temperature 
 	Enter 'flux' for heat flux boundary condition.
 	Enter 'gen' for heat flux generation.
 	Enter 'done' once everthing is specified.""")
-	type = raw_input("> ")
+	type = input("> ")
 	if type == 'temp':
 		print ("""Please choose the boundary in which you want to apply temperature boundary conditions.""")
 		print ("Edge 1 is between the coordinates (%d, %d) and (%d, %d)" % (x1, y1, x2, y2))
@@ -107,18 +107,18 @@ def boundary_conditions():	# Sixth step of the process that gathers temperature 
 		print ("Edge 3 is between the coordinates (%d, %d) and (%d, %d)" % (x3, y3, x4, y4))
 		print ("Edge 4 is between the coordinates (%d, %d) and (%d, %d)" % (x4, y4, x1, y1))
 		print ("""Please enter the no. of the edge you want to select""")
-		edge = raw_input("> ")
+		edge = input("> ")
 		if edge == '1':
-			temp_1 = int(raw_input("Please enter the temperature\n> "))
+			temp_1 = int(input("Please enter the temperature\n> "))
 			boundary_conditions()
 		elif edge == '2':
-			temp_2 = int(raw_input("Please enter the temperature\n> "))
+			temp_2 = int(input("Please enter the temperature\n> "))
 			boundary_conditions()
 		elif edge == '3':
-			temp_3 = int(raw_input("Please enter the temperature\n> "))
+			temp_3 = int(input("Please enter the temperature\n> "))
 			boundary_conditions()
 		elif edge == '4':
-			temp_4 = int(raw_input("Please enter the temperature\n> "))
+			temp_4 = int(input("Please enter the temperature\n> "))
 			boundary_conditions()
 		else:
 			print("Sorry, that is not a valid value")
@@ -130,22 +130,22 @@ def boundary_conditions():	# Sixth step of the process that gathers temperature 
 		print ("Edge 3 is between the coordinates (%d, %d) and (%d, %d)" % (x3, y3, x4, y4))
 		print ("Edge 4 is between the coordinates (%d, %d) and (%d, %d)" % (x4, y4, x1, y1))
 		print ("""Please enter the no. of the edge you want to select""")
-		edge = raw_input("> ")
+		edge = input("> ")
 		if edge == '1':
-			temp_amb_1 = int(raw_input("Please enter the value of the ambient temperature\n> "))
-			conv_coeff_1 = int(raw_input("Please enter the value of the convection coefficient\n> "))
+			temp_amb_1 = int(input("Please enter the value of the ambient temperature\n> "))
+			conv_coeff_1 = int(input("Please enter the value of the convection coefficient\n> "))
 			boundary_conditions()
 		elif edge == '2':
-			temp_amb_2 = int(raw_input("Please enter the value of the ambient temperature\n> "))
-			conv_coeff_2 = int(raw_input("Please enter the value of the convection coefficient\n> "))
+			temp_amb_2 = int(input("Please enter the value of the ambient temperature\n> "))
+			conv_coeff_2 = int(input("Please enter the value of the convection coefficient\n> "))
 			boundary_conditions()
 		elif edge == '3':
-			temp_amb_3 = int(raw_input("Please enter the value of the ambient temperature\n> "))
-			conv_coeff_3 = int(raw_input("Please enter the value of the convection coefficient\n> "))
+			temp_amb_3 = int(input("Please enter the value of the ambient temperature\n> "))
+			conv_coeff_3 = int(input("Please enter the value of the convection coefficient\n> "))
 			boundary_conditions()
 		elif edge == '4':
-			temp_amb_4 = int(raw_input("Please enter the value of the ambient temperature\n> "))
-			conv_coeff_4 = int(raw_input("Please enter the value of the convection coefficient\n> "))
+			temp_amb_4 = int(input("Please enter the value of the ambient temperature\n> "))
+			conv_coeff_4 = int(input("Please enter the value of the convection coefficient\n> "))
 			boundary_conditions()
 		else:
 			print("Sorry, that is not a valid value")
@@ -157,24 +157,24 @@ def boundary_conditions():	# Sixth step of the process that gathers temperature 
 		print ("Edge 3 is between the coordinates (%d, %d) and (%d, %d)" % (x3, y3, x4, y4))
 		print ("Edge 4 is between the coordinates (%d, %d) and (%d, %d)" % (x4, y4, x1, y1))
 		print ("""Please enter the no. of the edge you want to select""")
-		edge = raw_input("> ")
+		edge = input("> ")
 		if edge == '1':
-			heat_flux_1 = int(raw_input("Please enter the value of the heat flux in this edge\n> "))
+			heat_flux_1 = int(input("Please enter the value of the heat flux in this edge\n> "))
 			boundary_conditions()
 		if edge == '2':
-			heat_flux_2 = int(raw_input("Please enter the value of the heat flux in this edge\n> "))
+			heat_flux_2 = int(input("Please enter the value of the heat flux in this edge\n> "))
 			boundary_conditions()
 		if edge == '3':
-			heat_flux_3 = int(raw_input("Please enter the value of the heat flux in this edge\n> "))
+			heat_flux_3 = int(input("Please enter the value of the heat flux in this edge\n> "))
 			boundary_conditions()
 		if edge == '4':
-			heat_flux_4 = int(raw_input("Please enter the value of the heat flux in this edge\n> "))
+			heat_flux_4 = int(input("Please enter the value of the heat flux in this edge\n> "))
 			boundary_conditions()
 		else:
 			print ("Sorry, that is not a valid value")
 			boundary_conditions()
 	elif type == 'gen':
-		heat_gen = int(raw_input("Please enter the value of the heat generation per unit volume within the object\n> "))
+		heat_gen = int(input("Please enter the value of the heat generation per unit volume within the object\n> "))
 		boundary_conditions()
 	elif type == 'done':
 		stiffness_matrix()
@@ -204,7 +204,7 @@ def four_node_iso():	# Third step of the process which implements a four node is
 	k_small = sym.Matrix([[k, 0], [0, k]])	# Calculating the k small matrix which will be the same for all elements since all elements are identical
 	print(k_small)
 	
-	raw_input()
+	input()
 	stiffness_matrix()	# Calls for the next step of the process
 	
 def stiffness_matrix():	# Fourth step of the process which calculates the element stiffness matrices for all the elements
@@ -221,21 +221,21 @@ def stiffness_matrix():	# Fourth step of the process which calculates the elemen
 			j = 0
 			i += 1
 	print(element)
-	raw_input()
+	input()
 	
-	xst[0] = (element[0][0]*N1)+(element[0][2]*N2)+(element[0][4]*N3)+(element[0][6]*N4); print('x =', xst[0]); raw_input()	# Calculating the coordinate values in the isoparametric coordinates using
-	yst[0] = (element[0][1]*N1)+(element[0][3]*N2)+(element[0][5]*N3)+(element[0][7]*N4); print('y =', yst[0]); raw_input()	# the coordinate values from the cartesian coordinates
-	J[0] = sym.Matrix([[sym.diff(xst[0], s), sym.diff(yst[0], s)], [sym.diff(xst[0], t), sym.diff(yst[0], t)]]); print('Jacobian =', J[0]); raw_input()	# Jacobian matrix
-	J_inv[0] = J[0].inv(); print('Jacobian inverse =', J_inv[0]); raw_input()	# Jacobian inverse
-	J_det[0] = J[0].det(); print('Jacibian determinant =', J_det[0]); raw_input()	# Determinant of the Jacobian matrix
-	XT[0] = J_inv[0]*ST; print('B =', XT[0]); raw_input()	# B matrix
-	XT_trans[0] = XT[0].transpose(); print('B transpose =', XT_trans[0]); raw_input()	# Transpose of B matrix
-	Ke[0] = sym.Matrix(4, 4, XT_trans[0]*k_small*XT[0]*J_det[0]).tolist(); print('Ke =', Ke[0]); raw_input()	# Substituting values into the stiffness matrix equation
+	xst[0] = (element[0][0]*N1)+(element[0][2]*N2)+(element[0][4]*N3)+(element[0][6]*N4); print('x =', xst[0]); input()	# Calculating the coordinate values in the isoparametric coordinates using
+	yst[0] = (element[0][1]*N1)+(element[0][3]*N2)+(element[0][5]*N3)+(element[0][7]*N4); print('y =', yst[0]); input()	# the coordinate values from the cartesian coordinates
+	J[0] = sym.Matrix([[sym.diff(xst[0], s), sym.diff(yst[0], s)], [sym.diff(xst[0], t), sym.diff(yst[0], t)]]); print('Jacobian =', J[0]); input()	# Jacobian matrix
+	J_inv[0] = J[0].inv(); print('Jacobian inverse =', J_inv[0]); input()	# Jacobian inverse
+	J_det[0] = J[0].det(); print('Jacibian determinant =', J_det[0]); input()	# Determinant of the Jacobian matrix
+	XT[0] = J_inv[0]*ST; print('B =', XT[0]); input()	# B matrix
+	XT_trans[0] = XT[0].transpose(); print('B transpose =', XT_trans[0]); input()	# Transpose of B matrix
+	Ke[0] = sym.Matrix(4, 4, XT_trans[0]*k_small*XT[0]*J_det[0]).tolist(); print('Ke =', Ke[0]); input()	# Substituting values into the stiffness matrix equation
 	K[0] = sym.zeros(4, 4).tolist()
 	for m in range(4):	# Calculating stiffness matrices for each element
 		for n in range(4):	# Calculating K values for each point in an element stiffness matrix
 			K[0][m][n] = (integrate(Ke[0][m][n], (t, -1, 1), (s, -1, 1)))	# Integrating each term of the element stiffness matrix
-	print ('Element Stiffness Matrix =', K[0]); raw_input()
+	print ('Element Stiffness Matrix =', K[0]); input()
 	stiffness_assembly()	# Calls for the next step of rhe process
 	
 def stiffness_assembly():	# Fifth step of the process that assembles all the element stiffness matrices into a single global stiffness matrix
@@ -279,16 +279,16 @@ def stiffness_assembly():	# Fifth step of the process that assembles all the ele
 	data = ravel(data)
 	print(row)
 	print(shape(row))
-	raw_input()
+	input()
 	print(col)
 	print(shape(col))
-	raw_input()
+	input()
 	print(data)
 	print(shape(data))
-	raw_input()
+	input()
 	
 	stiffness = coo_matrix((data, (row, col)), shape=((n+1)**2,(n+1)**2), dtype = int8).toarray()	# Assembles the global stiffness matrix
 	print(stiffness)
-	raw_input()	# Should call for the next step in the process which is getting boundary conditions from the user
+	input()	# Should call for the next step in the process which is getting boundary conditions from the user
 	
 input_geometry()	# Starts the program from input geometry
